@@ -43,39 +43,40 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  /* Deep Sea Blue (#005792) as primary, Vibrant Orange (#FF7D00) as accent */
+  --primary: #005792;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #004a7a;
+  --sidebar-primary-foreground: #ffffff;
+  --accent: #FF7D00;
+  --accent-foreground: #ffffff;
+  --chart-1: #0088cc;
+  --chart-2: #005792;
+  --chart-3: #003d6b;
+  --chart-4: #FF7D00;
+  --chart-5: #ff9933;
+  --radius: 0.5rem;
+  --background: #ffffff;
+  --foreground: #1D2129;
+  --card: #f5f7fa;
+  --card-foreground: #1D2129;
+  --popover: #ffffff;
+  --popover-foreground: #1D2129;
+  --secondary: #f5f7fa;
+  --secondary-foreground: #1D2129;
+  --muted: #86909C;
+  --muted-foreground: #86909C;
+  --destructive: #d32f2f;
+  --destructive-foreground: #ffffff;
+  --border: #e8e8e8;
+  --input: #f5f7fa;
+  --ring: #FF7D00;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1D2129;
+  --sidebar-accent: #FF7D00;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e8e8e8;
+  --sidebar-ring: #FF7D00;
 }
 
 .dark {
@@ -119,6 +120,22 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 36px);
+  }
+  h2 {
+    font-size: clamp(24px, 4vw, 28px);
+  }
+  h3 {
+    font-size: clamp(20px, 3vw, 24px);
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
