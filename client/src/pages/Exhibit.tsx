@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ExhibitionMap from '@/components/ExhibitionMap';
 import { toast } from 'sonner';
 import { ChevronDown } from 'lucide-react';
 
@@ -192,6 +193,13 @@ export default function Exhibit() {
               {content.visitor}
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Exhibition Map Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto max-w-4xl">
+          <ExhibitionMap language={language} />
         </div>
       </section>
 
