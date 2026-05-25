@@ -198,7 +198,7 @@ export default function News() {
               >
                 <div className="h-40 bg-cover bg-center">
                   <img 
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-products-showcase-CMXSwCDyZWW3vcSwX6TiYN.webp" 
+                    src={article.id % 3 === 0 ? 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp' : article.id % 3 === 1 ? 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp' : 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp'} 
                     alt={article.title}
                     className="w-full h-full object-cover"
                   />

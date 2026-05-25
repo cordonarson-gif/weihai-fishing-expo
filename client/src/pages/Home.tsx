@@ -108,7 +108,7 @@ export default function Home() {
       {/* Carousel Section */}
       <section className="pt-20 mt-12 relative overflow-hidden">
         <div className="relative h-96 md:h-[500px] bg-cover bg-center" style={{
-          backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/hero-banner-VV9imKng4FXogKQ9Luy7As.webp)',
+          backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/hero-banner-fishing-RDuVyNqa6iryrKKEtUrG4F.webp)',
           backgroundAttachment: 'fixed'
         }}>
           {/* Dark overlay */}

@@ -83,7 +83,7 @@ export default function SmartExhibition() {
           {/* Panorama Image with Hotspots */}
           <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden mb-8 cursor-pointer shadow-lg">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-hall-panorama-RcpE7KEGALMfhDbgsbLLFB.webp" 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp" 
               alt="Panoramic Exhibition Hall"
               className="w-full h-full object-cover"
             />
@@ -163,7 +163,7 @@ export default function SmartExhibition() {
               >
                 <div className="w-full h-40 bg-cover bg-center">
                   <img 
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-products-showcase-CMXSwCDyZWW3vcSwX6TiYN.webp" 
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp" 
                     alt={product.name}
                     className="w-full h-full object-cover"
                   />
@@ -186,7 +186,7 @@ export default function SmartExhibition() {
           {/* Exhibition Booth Image */}
           <div className="w-full h-64 md:h-80 rounded-lg mb-12 overflow-hidden shadow-lg">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-booth-hijAWv9Hqwb8GT4wrp5GgJ.webp" 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp" 
               alt="Exhibition Booth"
               className="w-full h-full object-cover"
             />

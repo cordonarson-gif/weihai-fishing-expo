@@ -83,8 +83,8 @@ export default function Overview() {
           {/* Hall Image */}
           <div className="w-full h-64 md:h-96 rounded-lg mb-8 overflow-hidden shadow-lg">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-hall-panorama-RcpE7KEGALMfhDbgsbLLFB.webp" 
-              alt="Exhibition Hall Panorama"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-hall-interior-FAmnpvUxeY7cFqQaLBzZpw.webp" 
+              alt="Exhibition Hall Interior"
               className="w-full h-full object-cover"
             />
           </div>
