@@ -107,14 +107,20 @@ export default function Home() {
 
       {/* Carousel Section */}
       <section className="pt-20 mt-12 relative overflow-hidden">
-        <div className="relative h-96 md:h-[500px] bg-gradient-to-r from-primary to-blue-900">
+        <div className="relative h-96 md:h-[500px] bg-cover bg-center" style={{
+          backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/hero-banner-VV9imKng4FXogKQ9Luy7As.webp)',
+          backgroundAttachment: 'fixed'
+        }}>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+          
           {/* Carousel Content */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white px-4 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
                 {content.carousel[carouselIndex].title}
               </h1>
-              <p className="text-lg md:text-xl text-blue-100">
+              <p className="text-lg md:text-xl text-blue-100 drop-shadow">
                 {content.carousel[carouselIndex].subtitle}
               </p>
             </div>

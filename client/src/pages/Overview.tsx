@@ -80,9 +80,13 @@ export default function Overview() {
           <h2 className="text-3xl font-bold mb-4 text-primary">{content.hallTitle}</h2>
           <p className="text-muted mb-8">{content.hallSubtitle}</p>
           
-          {/* Hall Image Placeholder */}
-          <div className="w-full h-64 md:h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-8 flex items-center justify-center">
-            <span className="text-gray-600 text-lg">Exhibition Hall Map</span>
+          {/* Hall Image */}
+          <div className="w-full h-64 md:h-96 rounded-lg mb-8 overflow-hidden shadow-lg">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-hall-panorama-RcpE7KEGALMfhDbgsbLLFB.webp" 
+              alt="Exhibition Hall Panorama"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Hall Descriptions */}

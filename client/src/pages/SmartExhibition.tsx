@@ -81,10 +81,12 @@ export default function SmartExhibition() {
           <h2 className="text-3xl font-bold mb-8 text-primary">{content.panorama}</h2>
           
           {/* Panorama Image with Hotspots */}
-          <div className="relative w-full h-96 md:h-[500px] bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg overflow-hidden mb-8 cursor-pointer">
-            <div className="w-full h-full flex items-center justify-center text-gray-600">
-              {language === 'zh' ? '全景展厅图' : 'Panoramic Exhibition Hall'}
-            </div>
+          <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden mb-8 cursor-pointer shadow-lg">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-hall-panorama-RcpE7KEGALMfhDbgsbLLFB.webp" 
+              alt="Panoramic Exhibition Hall"
+              className="w-full h-full object-cover"
+            />
             
             {/* Hotspots */}
             {hotspots.map((hotspot) => (
@@ -159,8 +161,12 @@ export default function SmartExhibition() {
                 key={product.id}
                 className="bg-white rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow"
               >
-                <div className="w-full h-40 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-gray-600 text-sm">{language === 'zh' ? '产品图' : 'Product'}</span>
+                <div className="w-full h-40 bg-cover bg-center">
+                  <img 
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-products-showcase-CMXSwCDyZWW3vcSwX6TiYN.webp" 
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="p-4">
                   <h3 className="font-bold text-primary mb-2 line-clamp-2">{product.name}</h3>
@@ -173,9 +179,18 @@ export default function SmartExhibition() {
       </section>
 
       {/* Business Matching Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-gradient-to-b from-white to-blue-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-primary">{content.matching}</h2>
+
+          {/* Exhibition Booth Image */}
+          <div className="w-full h-64 md:h-80 rounded-lg mb-12 overflow-hidden shadow-lg">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-booth-hijAWv9Hqwb8GT4wrp5GgJ.webp" 
+              alt="Exhibition Booth"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           {/* Matching Board */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
