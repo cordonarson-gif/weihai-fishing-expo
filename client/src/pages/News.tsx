@@ -25,6 +25,7 @@ export default function News() {
         date: '2026-05-20',
         summary: language === 'zh' ? '本文分析了2026年渔具行业的发展趋势...' : 'This article analyzes the development trends of the fishing gear industry in 2026...',
         content: language === 'zh' ? '2026年渔具行业将呈现以下发展趋势：1. 智能化升级 2. 环保材料应用 3. 跨境电商发展 4. 产业链整合。' : 'The fishing gear industry in 2026 will show the following trends: 1. Smart upgrades 2. Eco-friendly materials 3. Cross-border e-commerce 4. Industry chain integration.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp',
       },
       {
         id: 2,
@@ -32,6 +33,7 @@ export default function News() {
         date: '2026-05-15',
         summary: language === 'zh' ? '根据最新数据显示，全球渔具市场规模...' : 'According to latest data, the global fishing gear market size...',
         content: language === 'zh' ? '全球渔具市场规模在过去五年中持续增长，预计未来三年仍将保持两位数增长。亚洲市场成为主要增长引擎。' : 'The global fishing gear market has shown continuous growth over the past five years, and is expected to maintain double-digit growth in the next three years. Asia has become the main growth engine.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp',
       },
       {
         id: 3,
@@ -39,6 +41,7 @@ export default function News() {
         date: '2026-05-10',
         summary: language === 'zh' ? '随着环保意识的提升，环保渔具...' : 'With increasing environmental awareness, eco-friendly fishing gear...',
         content: language === 'zh' ? '环保渔具因其可持续性和环保特性，正在成为市场的新热点。许多知名品牌已开始推出环保系列产品。' : 'Eco-friendly fishing gear is becoming a new market hotspot due to its sustainability and environmental benefits. Many well-known brands have started launching eco-friendly product lines.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp',
       },
       {
         id: 4,
@@ -46,6 +49,7 @@ export default function News() {
         date: '2026-05-05',
         summary: language === 'zh' ? '智能化技术在渔具领域的应用...' : 'Application of smart technology in fishing gear...',
         content: language === 'zh' ? '智能渔具集成了物联网、人工智能等技术，为钓鱼爱好者提供了全新的体验。市场对智能产品的需求不断增加。' : 'Smart fishing gear integrates IoT and AI technologies, providing fishing enthusiasts with a new experience. Market demand for smart products continues to increase.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp',
       },
       {
         id: 5,
@@ -53,6 +57,7 @@ export default function News() {
         date: '2026-04-30',
         summary: language === 'zh' ? '中国渔具出口市场持续增长...' : 'China\'s fishing gear export market continues to grow...',
         content: language === 'zh' ? '中国渔具产品在国际市场上的竞争力不断增强，出口市场前景看好。预计今年出口增长将达到15%。' : 'The competitiveness of Chinese fishing gear products in the international market continues to strengthen. The export market outlook is positive, with expected growth of 15% this year.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp',
       },
       {
         id: 6,
@@ -60,6 +65,7 @@ export default function News() {
         date: '2026-04-25',
         summary: language === 'zh' ? '近期渔具行业并购活动...' : 'Recent M&A activities in the fishing gear industry...',
         content: language === 'zh' ? '为了增强竞争力，许多渔具企业正在进行并购活动，行业整合步伐加快。' : 'To enhance competitiveness, many fishing gear companies are conducting M&A activities, and the pace of industry consolidation is accelerating.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp',
       },
     ],
     exhibition: [
@@ -69,6 +75,7 @@ export default function News() {
         date: '2026-05-22',
         summary: language === 'zh' ? '第十八届威海国际渔具博览会将于...' : 'The 18th Weihai International Fishing Gear Exhibition will be held...',
         content: language === 'zh' ? '第十八届威海国际渔具博览会将于2026年10月17-19日在威海国际博览中心举办。本届展会规模创历史新高，预计吸引1100+展商和40000+专业采购商参展。' : 'The 18th Weihai International Fishing Gear Exhibition will be held on October 17-19, 2026 at Weihai International Convention Center. This edition will set a new record in scale, attracting 1100+ exhibitors and 40,000+ professional buyers.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp',
       },
       {
         id: 8,
@@ -76,9 +83,11 @@ export default function News() {
         date: '2026-05-18',
         summary: language === 'zh' ? '本届展会推出全新的智慧展厅...' : 'This exhibition introduces a new smart exhibition hall...',
         content: language === 'zh' ? '全新的智慧展厅功能包括：720度全景展示、在线产品查询、精准商务配对、实时数据统计等功能，为参展商和采购商提供全新体验。' : 'The new smart exhibition hall features include: 720-degree panoramic display, online product search, precise business matching, real-time data statistics, etc., providing exhibitors and buyers with a new experience.',
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp',
       },
       {
         id: 9,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp',
         title: language === 'zh' ? '展会参展商报名火爆' : 'Exhibition Exhibitor Registration Booming',
         date: '2026-05-12',
         summary: language === 'zh' ? '展会开放报名以来，参展商报名...' : 'Since the exhibition opened for registration, exhibitor registration...',
@@ -86,6 +95,7 @@ export default function News() {
       },
       {
         id: 10,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp',
         title: language === 'zh' ? '国际采购商预登记启动' : 'International Buyer Pre-registration Launched',
         date: '2026-05-08',
         summary: language === 'zh' ? '国际采购商预登记现已启动...' : 'International buyer pre-registration is now open...',
@@ -93,6 +103,7 @@ export default function News() {
       },
       {
         id: 11,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp',
         title: language === 'zh' ? '展会同期活动丰富多彩' : 'Rich and Colorful Concurrent Activities',
         date: '2026-05-03',
         summary: language === 'zh' ? '展会同期将举办多项活动...' : 'Multiple activities will be held during the exhibition...',
@@ -100,6 +111,7 @@ export default function News() {
       },
       {
         id: 12,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp',
         title: language === 'zh' ? '展会交通和住宿安排完善' : 'Complete Exhibition Transportation and Accommodation Arrangements',
         date: '2026-04-28',
         summary: language === 'zh' ? '展会组委会已完成交通和住宿...' : 'The exhibition organizing committee has completed transportation and accommodation...',
@@ -109,6 +121,7 @@ export default function News() {
     enterprise: [
       {
         id: 13,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp',
         title: language === 'zh' ? '知名渔具企业A公司创新发展案例' : 'Innovative Development Case of Leading Fishing Gear Company A',
         date: '2026-05-19',
         summary: language === 'zh' ? 'A公司通过技术创新和市场...' : 'Company A through technological innovation and market...',
@@ -116,6 +129,7 @@ export default function News() {
       },
       {
         id: 14,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp',
         title: language === 'zh' ? '环保渔具企业B公司绿色发展之路' : 'Green Development Path of Eco-friendly Fishing Gear Company B',
         date: '2026-05-14',
         summary: language === 'zh' ? 'B公司致力于环保渔具的研发...' : 'Company B is committed to the development of eco-friendly fishing gear...',
@@ -123,6 +137,7 @@ export default function News() {
       },
       {
         id: 15,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp',
         title: language === 'zh' ? '跨境电商企业C公司国际拓展' : 'International Expansion of Cross-border E-commerce Company C',
         date: '2026-05-09',
         summary: language === 'zh' ? 'C公司通过跨境电商平台...' : 'Company C through cross-border e-commerce platforms...',
@@ -130,6 +145,7 @@ export default function News() {
       },
       {
         id: 16,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp',
         title: language === 'zh' ? '智能渔具企业D公司技术突破' : 'Technology Breakthrough of Smart Fishing Gear Company D',
         date: '2026-05-04',
         summary: language === 'zh' ? 'D公司在智能渔具领域...' : 'Company D in the smart fishing gear field...',
@@ -137,6 +153,7 @@ export default function News() {
       },
       {
         id: 17,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp',
         title: language === 'zh' ? '传统渔具企业E公司转型升级' : 'Transformation and Upgrade of Traditional Fishing Gear Company E',
         date: '2026-04-29',
         summary: language === 'zh' ? 'E公司通过数字化转型...' : 'Company E through digital transformation...',
@@ -144,6 +161,7 @@ export default function News() {
       },
       {
         id: 18,
+        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp',
         title: language === 'zh' ? '渔具配件企业F公司专业化发展' : 'Specialized Development of Fishing Gear Accessories Company F',
         date: '2026-04-24',
         summary: language === 'zh' ? 'F公司专注于渔具配件...' : 'Company F focuses on fishing gear accessories...',
@@ -198,7 +216,7 @@ export default function News() {
               >
                 <div className="h-40 bg-cover bg-center">
                   <img 
-                    src={article.id % 3 === 0 ? 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp' : article.id % 3 === 1 ? 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp' : 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp'} 
+                    src={article.image} 
                     alt={article.title}
                     className="w-full h-full object-cover"
                   />

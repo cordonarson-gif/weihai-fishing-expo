@@ -36,10 +36,12 @@ export default function Footer({ language }: FooterProps) {
           {/* Right: QR Code */}
           <div className="flex flex-col items-start md:items-end">
             <h3 className="text-lg font-bold mb-4">{content.qrcode}</h3>
-            <div className="w-24 h-24 bg-white rounded-lg p-2 flex items-center justify-center">
-              <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded flex items-center justify-center text-xs text-gray-600">
-                QR Code
-              </div>
+            <div className="w-24 h-24 bg-white rounded-lg p-1 flex items-center justify-center">
+              <img 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/wechat-qrcode-official-mK7pQsRvWx4zH2yN6vC5Dp.webp" 
+                alt="Official WeChat QR Code"
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>

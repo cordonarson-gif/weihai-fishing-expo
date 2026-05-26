@@ -163,7 +163,7 @@ export default function SmartExhibition() {
               >
                 <div className="w-full h-40 bg-cover bg-center">
                   <img 
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp" 
+                    src={product.image} 
                     alt={product.name}
                     className="w-full h-full object-cover"
                   />
@@ -186,8 +186,8 @@ export default function SmartExhibition() {
           {/* Exhibition Booth Image */}
           <div className="w-full h-64 md:h-80 rounded-lg mb-12 overflow-hidden shadow-lg">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp" 
-              alt="Exhibition Booth"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/business-matching-conference-nL8qTuSwXy5aI3zO7wD6Eq.webp" 
+              alt="Business Matching Conference"
               className="w-full h-full object-cover"
             />
           </div>

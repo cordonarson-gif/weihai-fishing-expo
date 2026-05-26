@@ -132,9 +132,17 @@ export default function Overview() {
 
           {/* Past Event Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {[1, 2, 3].map((idx) => (
-              <div key={idx} className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center">
-                <span className="text-gray-600">Event Photo {idx}</span>
+            {[
+              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-gear-exhibition-event-1-xK9nMvQrLp2sT5wJ8nB3Ym.webp', alt: 'Exhibition Event 1' },
+              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-gear-exhibition-event-2-mK7pQsRvWx4zH2yN6vC5Dp.webp', alt: 'Exhibition Event 2' },
+              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-gear-exhibition-event-3-nL8qTuSwXy5aI3zO7wD6Eq.webp', alt: 'Exhibition Event 3' },
+            ].map((photo, idx) => (
+              <div key={idx} className="h-48 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                <img 
+                  src={photo.url} 
+                  alt={photo.alt}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
