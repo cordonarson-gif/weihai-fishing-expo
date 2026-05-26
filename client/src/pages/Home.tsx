@@ -36,6 +36,16 @@ export default function Home() {
     ],
     highlights: '展会亮点',
     highlightText: '威海国际渔具博览会是亚洲规模最大、全球排名前三的渔具专业展览会。本届展会以"线上线下融合"为核心主题，推出全新的智慧展厅功能，实现永不落幕的展会体验。',
+    smartExhibition: '智慧展厅',
+    smartExhibitionDesc: '体验永不落幕的展会',
+    fishingProducts: '渔具直购',
+    fishingProductsDesc: '精选热销渔具产品',
+    products: [
+      { id: 1, name: '专业鱼竿', price: '¥299', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp' },
+      { id: 2, name: '高速渔轮', price: '¥599', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp' },
+      { id: 3, name: '鱼线套装', price: '¥149', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp' },
+      { id: 4, name: '鱼钩精选', price: '¥89', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/hero-banner-fishing-RDuVyNqa6iryrKKEtUrG4F.webp' },
+    ],
   } : {
     carousel: [
       {
@@ -58,6 +68,16 @@ export default function Home() {
     ],
     highlights: 'Exhibition Highlights',
     highlightText: 'Weihai International Fishing Gear Exhibition is Asia\'s largest and globally top-3 professional fishing gear exhibition. This session features "Online & Offline Integration" as the core theme, introducing a new Smart Exhibition Hall for an evergreen exhibition experience.',
+    smartExhibition: 'Smart Exhibition Hall',
+    smartExhibitionDesc: 'Experience an Evergreen Exhibition',
+    fishingProducts: 'Fishing Gear Direct Purchase',
+    fishingProductsDesc: 'Premium Hot-selling Products',
+    products: [
+      { id: 1, name: 'Professional Fishing Rod', price: '¥299', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-rods-display-A3C9s7zVLNmxVdoG9nZPEj.webp' },
+      { id: 2, name: 'High-Speed Reel', price: '¥599', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp' },
+      { id: 3, name: 'Fishing Line Set', price: '¥149', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp' },
+      { id: 4, name: 'Premium Hooks', price: '¥89', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/hero-banner-fishing-RDuVyNqa6iryrKKEtUrG4F.webp' },
+    ],
   };
 
   // Animate stats on mount
@@ -199,6 +219,82 @@ export default function Home() {
             <p className="text-lg text-foreground leading-relaxed text-center">
               {content.highlightText}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Smart Exhibition Video Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-blue-900 to-blue-800">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                {content.smartExhibition}
+              </h2>
+              <p className="text-lg text-blue-100 mb-6">
+                {content.smartExhibitionDesc}
+              </p>
+              <button
+                onClick={() => window.location.href = '/smart-exhibition'}
+                className="bg-accent hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 hover:shadow-lg"
+              >
+                {language === 'zh' ? '进入智慧展厅' : 'Enter Smart Hall'}
+              </button>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-2xl">
+              <div className="aspect-video bg-black relative">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/oKeRPu-X4CY?autoplay=0&controls=1"
+                  title="Fishing Exhibition Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fishing Products Direct Purchase Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-primary">
+            {content.fishingProducts}
+          </h2>
+          <p className="text-center text-muted mb-12">
+            {content.fishingProductsDesc}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {content.products.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <div className="h-48 bg-cover bg-center">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg text-foreground mb-2">{product.name}</h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-primary">{product.price}</span>
+                    <button
+                      onClick={() => toast.success(language === 'zh' ? `已添加 ${product.name} 到购物车` : `${product.name} added to cart`)}
+                      className="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-lg transition-colors duration-300"
+                    >
+                      {language === 'zh' ? '购买' : 'Buy'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
