@@ -37,7 +37,7 @@ jobs:
         run: pnpm check
 
       - name: Build static site
-        run: pnpm exec vite build -- --base=/weihai-fishing-expo/
+        run: pnpm exec vite build
 
       - name: Add SPA fallback and disable Jekyll
         run: |
