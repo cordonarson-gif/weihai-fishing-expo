@@ -34,7 +34,13 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
     { label: 'Contact', href: '#contact' },
   ];
 
-  const isActive = (href: string) => location === href;
+  const isActive = (href: string) => location === `${import.meta.env.BASE_URL.replace(/\/$/, '')}${href}` || location === href;
+
+  const withBasePath = (href: string) => {
+    if (href.startsWith('#')) return href;
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+    return `${basePath}${href}` || '/';
+  };
 
   const handleNavClick = (href: string) => {
     if (href === '#contact') {
@@ -55,7 +61,7 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="group flex items-center gap-3 font-bold text-primary">
+        <a href={withBasePath('/')} className="group flex items-center gap-3 font-bold text-primary">
           <div className="w-10 h-10 bg-gradient-to-br from-primary via-blue-700 to-accent rounded-2xl flex items-center justify-center text-white text-base shadow-lg shadow-blue-900/20 transition-transform group-hover:scale-105">
             渔
           </div>
@@ -71,7 +77,7 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={withBasePath(item.href)}
               onClick={() => handleNavClick(item.href)}
               className={`relative px-4 py-2 rounded-full transition-all duration-200 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
                 item.highlight
@@ -117,7 +123,7 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={withBasePath(item.href)}
                 onClick={() => handleNavClick(item.href)}
                 className={`px-4 py-3 rounded-2xl transition-all duration-200 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   item.highlight

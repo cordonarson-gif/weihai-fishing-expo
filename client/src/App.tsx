@@ -10,15 +10,21 @@ import Exhibit from "./pages/Exhibit";
 import SmartExhibition from "./pages/SmartExhibition";
 import News from "./pages/News";
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+function withBasePath(path: string) {
+  return `${basePath}${path === "/" ? "" : path}` || "/";
+}
+
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/overview"} component={Overview} />
-      <Route path={"/exhibit"} component={Exhibit} />
-      <Route path={"/smart-exhibition"} component={SmartExhibition} />
-      <Route path={"/news"} component={News} />
-      <Route path={"/404"} component={NotFound} />
+      <Route path={withBasePath("/")} component={Home} />
+      <Route path={withBasePath("/overview")} component={Overview} />
+      <Route path={withBasePath("/exhibit")} component={Exhibit} />
+      <Route path={withBasePath("/smart-exhibition")} component={SmartExhibition} />
+      <Route path={withBasePath("/news")} component={News} />
+      <Route path={withBasePath("/404")} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>

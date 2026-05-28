@@ -35,20 +35,22 @@ export default function SmartExhibition() {
     matchingDesc: 'We use daily manual matching. Buyers post purchasing needs, exhibitors post supply information, and our team matches and pushes to both parties daily for precise and efficient connections. Use this page to filter categories, search exhibitors, and review hall hotspots before the show.',
   };
 
+  const productImagePath = (fileName: string) => `${import.meta.env.BASE_URL}generated-products/${fileName}`;
+
   // Sample products
   const products = [
-    { id: 1, name: language === 'zh' ? '专业鱼竿' : 'Professional Fishing Rod', company: language === 'zh' ? '威海海威钓具' : 'Weihai Haiwei Tackle', category: 'fishing-rod', image: '/generated-products/professional-rod.jpg' },
-    { id: 2, name: language === 'zh' ? '高速渔轮' : 'High-Speed Reel', company: language === 'zh' ? '荣成精工渔轮' : 'Rongcheng Precision Reel', category: 'fishing-reel', image: '/generated-products/high-speed-reel.jpg' },
-    { id: 3, name: language === 'zh' ? '鱼线配件' : 'Fishing Line', company: language === 'zh' ? '环翠线组科技' : 'Huancui Line Tech', category: 'accessories', image: '/generated-products/fishing-line.jpg' },
-    { id: 4, name: language === 'zh' ? '碳素鱼竿' : 'Carbon Fishing Rod', company: language === 'zh' ? '威海碳素钓具' : 'Weihai Carbon Tackle', category: 'fishing-rod', image: '/generated-products/carbon-rod.jpg' },
-    { id: 5, name: language === 'zh' ? '电动渔轮' : 'Electric Reel', company: language === 'zh' ? '蓝海智能渔轮' : 'Blue Ocean Smart Reel', category: 'fishing-reel', image: '/generated-products/electric-reel.jpg' },
-    { id: 6, name: language === 'zh' ? '钓鱼包' : 'Fishing Bag', company: language === 'zh' ? '海岸户外装备' : 'Coast Outdoor Gear', category: 'accessories', image: '/generated-products/fishing-bag.jpg' },
-    { id: 7, name: language === 'zh' ? '竞技鱼竿' : 'Competition Rod', company: language === 'zh' ? '冠军竞技钓具' : 'Champion Tackle', category: 'fishing-rod', image: '/generated-products/competition-rod.jpg' },
-    { id: 8, name: language === 'zh' ? '精密渔轮' : 'Precision Reel', company: language === 'zh' ? '远洋精密制造' : 'Ocean Precision Works', category: 'fishing-reel', image: '/generated-products/precision-reel.jpg' },
-    { id: 9, name: language === 'zh' ? '鱼钩套装' : 'Hook Set', company: language === 'zh' ? '金钩配件' : 'Gold Hook Accessories', category: 'accessories', image: '/generated-products/hook-set.jpg' },
-    { id: 10, name: language === 'zh' ? '海竿' : 'Sea Rod', company: language === 'zh' ? '深蓝海钓装备' : 'Deep Blue Sea Fishing', category: 'fishing-rod', image: '/generated-products/sea-rod.jpg' },
-    { id: 11, name: language === 'zh' ? '纺车轮' : 'Spinning Reel', company: language === 'zh' ? '海星渔轮制造' : 'Starfish Reel Manufacturing', category: 'fishing-reel', image: '/generated-products/spinning-reel.jpg' },
-    { id: 12, name: language === 'zh' ? '鱼饵' : 'Fish Bait', company: language === 'zh' ? '诱渔生物科技' : 'Lure Bio-Tech', category: 'accessories', image: '/generated-products/fish-bait.jpg' },
+    { id: 1, name: language === 'zh' ? '专业鱼竿' : 'Professional Fishing Rod', company: language === 'zh' ? '威海海威钓具' : 'Weihai Haiwei Tackle', category: 'fishing-rod', image: productImagePath('professional-rod.jpg') },
+    { id: 2, name: language === 'zh' ? '高速渔轮' : 'High-Speed Reel', company: language === 'zh' ? '荣成精工渔轮' : 'Rongcheng Precision Reel', category: 'fishing-reel', image: productImagePath('high-speed-reel.jpg') },
+    { id: 3, name: language === 'zh' ? '鱼线配件' : 'Fishing Line', company: language === 'zh' ? '环翠线组科技' : 'Huancui Line Tech', category: 'accessories', image: productImagePath('fishing-line.jpg') },
+    { id: 4, name: language === 'zh' ? '碳素鱼竿' : 'Carbon Fishing Rod', company: language === 'zh' ? '威海碳素钓具' : 'Weihai Carbon Tackle', category: 'fishing-rod', image: productImagePath('carbon-rod.jpg') },
+    { id: 5, name: language === 'zh' ? '电动渔轮' : 'Electric Reel', company: language === 'zh' ? '蓝海智能渔轮' : 'Blue Ocean Smart Reel', category: 'fishing-reel', image: productImagePath('electric-reel.jpg') },
+    { id: 6, name: language === 'zh' ? '钓鱼包' : 'Fishing Bag', company: language === 'zh' ? '海岸户外装备' : 'Coast Outdoor Gear', category: 'accessories', image: productImagePath('fishing-bag.jpg') },
+    { id: 7, name: language === 'zh' ? '竞技鱼竿' : 'Competition Rod', company: language === 'zh' ? '冠军竞技钓具' : 'Champion Tackle', category: 'fishing-rod', image: productImagePath('competition-rod.jpg') },
+    { id: 8, name: language === 'zh' ? '精密渔轮' : 'Precision Reel', company: language === 'zh' ? '远洋精密制造' : 'Ocean Precision Works', category: 'fishing-reel', image: productImagePath('precision-reel.jpg') },
+    { id: 9, name: language === 'zh' ? '鱼钩套装' : 'Hook Set', company: language === 'zh' ? '金钩配件' : 'Gold Hook Accessories', category: 'accessories', image: productImagePath('hook-set.jpg') },
+    { id: 10, name: language === 'zh' ? '海竿' : 'Sea Rod', company: language === 'zh' ? '深蓝海钓装备' : 'Deep Blue Sea Fishing', category: 'fishing-rod', image: productImagePath('sea-rod.jpg') },
+    { id: 11, name: language === 'zh' ? '纺车轮' : 'Spinning Reel', company: language === 'zh' ? '海星渔轮制造' : 'Starfish Reel Manufacturing', category: 'fishing-reel', image: productImagePath('spinning-reel.jpg') },
+    { id: 12, name: language === 'zh' ? '鱼饵' : 'Fish Bait', company: language === 'zh' ? '诱渔生物科技' : 'Lure Bio-Tech', category: 'accessories', image: productImagePath('fish-bait.jpg') },
   ];
 
   // Hotspot data

@@ -115,8 +115,13 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [content.carousel.length, isCarouselPaused]);
 
+  const withBasePath = (path: string) => {
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+    return `${basePath}${path}` || '/';
+  };
+
   const handleQuickEntry = (index: number) => {
-    window.location.assign(['/exhibit#exhibitor', '/exhibit#visitor', '/smart-exhibition'][index]);
+    window.location.assign([withBasePath('/exhibit#exhibitor'), withBasePath('/exhibit#visitor'), withBasePath('/smart-exhibition')][index]);
   };
 
   const heroImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/hero-banner-fishing-RDuVyNqa6iryrKKEtUrG4F.webp';
@@ -302,7 +307,7 @@ export default function Home() {
               </p>
               <button
                 type="button"
-                onClick={() => window.location.assign('/smart-exhibition')}
+                onClick={() => window.location.assign(withBasePath('/smart-exhibition'))}
                 className="bg-accent hover:bg-orange-500 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-500/25"
               >
                 {language === 'zh' ? '进入智慧展厅' : 'Enter Smart Hall'}

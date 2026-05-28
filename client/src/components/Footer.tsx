@@ -37,6 +37,11 @@ export default function Footer({ language }: FooterProps) {
     slogan: 'Connecting the global fishing gear industry with an evergreen professional exhibition',
   };
 
+  const withBasePath = (href: string) => {
+    const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+    return `${basePath}${href}` || '/';
+  };
+
   return (
     <footer id="contact" className="relative mt-20 overflow-hidden bg-gradient-to-br from-primary via-blue-900 to-blue-950 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,125,0,0.18),transparent_18rem)]"></div>
@@ -57,7 +62,7 @@ export default function Footer({ language }: FooterProps) {
             <ul className="space-y-3 text-sm text-blue-100">
               {content.nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-blue-100 transition-colors hover:text-white">
+                  <Link href={withBasePath(item.href)} className="text-blue-100 transition-colors hover:text-white">
                     {item.label}
                   </Link>
                 </li>
@@ -69,7 +74,7 @@ export default function Footer({ language }: FooterProps) {
             <h3 className="text-xl font-bold mb-4">{content.qrcode}</h3>
             <div className="w-28 h-28 rounded-2xl bg-white p-2 flex items-center justify-center shadow-2xl shadow-blue-950/20">
               <img
-                src="/mock-wechat-qr.png"
+                src={`${import.meta.env.BASE_URL}mock-wechat-qr.png`}
                 alt={language === 'zh' ? '官方微信二维码占位图' : 'Official WeChat QR placeholder'}
                 loading="lazy"
                 decoding="async"
