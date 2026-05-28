@@ -49,15 +49,15 @@ export default function Exhibit() {
       title: '展商须知',
       process: {
         title: '参展流程',
-        content: '1. 填写报名表 2. 审核确认 3. 签订合同 4. 支付费用 5. 参展',
+        content: '提交展位需求后，组委会将在1-2个工作日内完成资质沟通与展位建议，确认方案后进入合同签署、费用支付、展品报备和现场布展流程。',
       },
       rules: {
         title: '展馆规定',
-        content: '展位搭建需符合安全规范，禁止使用易燃材料，所有展品需通过安全检查。',
+        content: '特装搭建需提前提交设计图与用电需求，材料须符合消防安全规范；展品、宣传物料和现场演示需接受展馆安全检查。',
       },
       faq: {
         title: '常见问题',
-        content: '如有问题，请联系组委会：0631-5225555',
+        content: '如需咨询展位价格、展区位置、物流进场或商务配对服务，请联系组委会：0631-5225555。',
       },
     },
     visitorForm: {
@@ -73,15 +73,15 @@ export default function Exhibit() {
       title: '观展指南',
       transport: {
         title: '交通指引',
-        content: '威海国际博览中心位于威海市环翠区，距威海机场30分钟车程，公共交通便利。',
+        content: '威海国际博览中心位于威海市环翠区，距威海机场约30分钟车程。展期建议提前规划酒店至展馆通勤，并关注组委会发布的接驳车信息。',
       },
       hotel: {
         title: '周边住宿',
-        content: '展馆周边有多家五星级酒店和经济型酒店，满足不同需求。',
+        content: '展馆周边覆盖商务酒店与经济型酒店，热门房源在展前较快售罄，建议完成预登记后尽早确认住宿。',
       },
       schedule: {
         title: '观展日程',
-        content: '展会时间：2026年10月17-19日，每日9:00-17:00开放。',
+        content: '展会时间：2026年10月17-19日，每日9:00-17:00开放。专业采购商可优先使用预登记通道入场。',
       },
     },
   } : {
@@ -104,15 +104,15 @@ export default function Exhibit() {
       title: 'Exhibitor Guidelines',
       process: {
         title: 'Exhibition Process',
-        content: '1. Fill Form 2. Review 3. Sign Contract 4. Payment 5. Exhibit',
+        content: 'After submitting booth requirements, the organizing committee will review qualifications and provide booth recommendations within 1-2 business days. Once the plan is confirmed, exhibitors proceed with contract signing, payment, exhibit filing, and on-site setup.',
       },
       rules: {
         title: 'Hall Rules',
-        content: 'Booth construction must comply with safety standards. Flammable materials prohibited. All products must pass safety inspection.',
+        content: 'Custom booth builders must submit design drawings and power requirements in advance. Materials must meet fire safety standards, and exhibits, promotional materials, and live demonstrations are subject to venue safety inspection.',
       },
       faq: {
         title: 'FAQ',
-        content: 'For questions, contact: 0631-5225555',
+        content: 'For booth pricing, hall location, logistics access, or business matching services, please contact the organizing committee: 0631-5225555.',
       },
     },
     visitorForm: {
@@ -128,15 +128,15 @@ export default function Exhibit() {
       title: 'Visitor Guide',
       transport: {
         title: 'Transportation',
-        content: 'Weihai Convention Center is located in Huancui District, 30 minutes from Weihai Airport with convenient public transport.',
+        content: 'Weihai International Convention Center is located in Huancui District, about 30 minutes by car from Weihai Airport. Visitors are advised to plan hotel-to-venue transfers in advance and follow shuttle updates from the organizer.',
       },
       hotel: {
         title: 'Accommodation',
-        content: 'Multiple 5-star and budget hotels available near the venue to meet different needs.',
+        content: 'Business and budget hotels are available around the venue. Popular rooms may sell out before the show, so visitors should confirm accommodation soon after completing pre-registration.',
       },
       schedule: {
         title: 'Exhibition Schedule',
-        content: 'Exhibition dates: October 17-19, 2026, 9:00 AM - 5:00 PM daily.',
+        content: 'The exhibition runs from October 17-19, 2026, and is open daily from 9:00 AM to 5:00 PM. Professional buyers can use the pre-registration channel for priority entry.',
       },
     },
   };
@@ -162,32 +162,35 @@ export default function Exhibit() {
       <Navigation language={language} onLanguageChange={setLanguage} />
 
       {/* Page Title */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-r from-primary to-blue-900 text-white">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">{content.title}</h1>
+      <section className="page-hero pt-36 pb-16 px-4">
+        <div className="container mx-auto relative text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-orange-200 mb-4">Services</p>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">{content.title}</h1>
         </div>
       </section>
 
       {/* Tabs */}
-      <section className="px-4 py-8 border-b border-border">
+      <section className="px-4 py-8 border-b border-border bg-white/80 backdrop-blur">
         <div className="container mx-auto">
-          <div className="flex gap-4">
+          <div className="inline-flex w-full sm:w-auto rounded-full border border-border bg-white p-1 shadow-sm">
             <button
+              type="button"
               onClick={() => setActiveTab('exhibitor')}
-              className={`px-6 py-3 font-bold text-lg transition-all ${
+              className={`flex-1 sm:flex-none px-6 py-3 font-bold text-base md:text-lg rounded-full transition-all ${
                 activeTab === 'exhibitor'
-                  ? 'text-primary border-b-2 border-primary'
-                  : 'text-muted hover:text-foreground'
+                  ? 'bg-primary text-white shadow-lg shadow-blue-900/15'
+                  : 'text-muted-foreground hover:text-primary hover:bg-blue-50'
               }`}
             >
               {content.exhibitor}
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('visitor')}
-              className={`px-6 py-3 font-bold text-lg transition-all ${
+              className={`flex-1 sm:flex-none px-6 py-3 font-bold text-base md:text-lg rounded-full transition-all ${
                 activeTab === 'visitor'
-                  ? 'text-primary border-b-2 border-primary'
-                  : 'text-muted hover:text-foreground'
+                  ? 'bg-primary text-white shadow-lg shadow-blue-900/15'
+                  : 'text-muted-foreground hover:text-primary hover:bg-blue-50'
               }`}
             >
               {content.visitor}
@@ -197,28 +200,30 @@ export default function Exhibit() {
       </section>
 
       {/* Exhibition Map Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-16 px-4 bg-gradient-to-b from-blue-50/80 to-white">
+        <div className="container mx-auto max-w-5xl">
           <ExhibitionMap language={language} />
         </div>
       </section>
 
       {/* Content */}
       <section className="py-16 px-4">
-        <div className="container mx-auto max-w-2xl">
+        <div className="container mx-auto max-w-4xl">
           {activeTab === 'exhibitor' ? (
             <>
               {/* Exhibitor Form */}
-              <div id="exhibitor" className="mb-12">
-                <h2 className="text-2xl font-bold mb-6 text-primary">{content.exhibitorForm.title}</h2>
-                <form onSubmit={handleExhibitorSubmit} className="space-y-4">
+              <div id="exhibitor" className="section-shell p-6 md:p-8 mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary">{content.exhibitorForm.title}</h2>
+                <form onSubmit={handleExhibitorSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium mb-2">{content.exhibitorForm.company}</label>
                     <input
                       type="text"
                       value={exhibitorForm.company}
+                      aria-label={content.exhibitorForm.company}
+                      placeholder={content.exhibitorForm.company}
                       onChange={(e) => setExhibitorForm({ ...exhibitorForm, company: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
@@ -227,8 +232,10 @@ export default function Exhibit() {
                     <input
                       type="text"
                       value={exhibitorForm.contact}
+                      aria-label={content.exhibitorForm.contact}
+                      placeholder={content.exhibitorForm.contact}
                       onChange={(e) => setExhibitorForm({ ...exhibitorForm, contact: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
@@ -237,8 +244,10 @@ export default function Exhibit() {
                     <input
                       type="tel"
                       value={exhibitorForm.phone}
+                      aria-label={content.exhibitorForm.phone}
+                      placeholder={content.exhibitorForm.phone}
                       onChange={(e) => setExhibitorForm({ ...exhibitorForm, phone: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
@@ -247,17 +256,20 @@ export default function Exhibit() {
                     <input
                       type="email"
                       value={exhibitorForm.email}
+                      aria-label={content.exhibitorForm.email}
+                      placeholder={content.exhibitorForm.email}
                       onChange={(e) => setExhibitorForm({ ...exhibitorForm, email: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">{content.exhibitorForm.boothType}</label>
                     <select
+                      aria-label={content.exhibitorForm.boothType}
                       value={exhibitorForm.boothType}
                       onChange={(e) => setExhibitorForm({ ...exhibitorForm, boothType: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     >
                       <option value="">{language === 'zh' ? '请选择' : 'Select'}</option>
@@ -269,9 +281,10 @@ export default function Exhibit() {
                   <div>
                     <label className="block text-sm font-medium mb-2">{content.exhibitorForm.area}</label>
                     <select
+                      aria-label={content.exhibitorForm.area}
                       value={exhibitorForm.area}
                       onChange={(e) => setExhibitorForm({ ...exhibitorForm, area: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     >
                       <option value="">{language === 'zh' ? '请选择' : 'Select'}</option>
@@ -282,7 +295,7 @@ export default function Exhibit() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                    className="md:col-span-2 w-full bg-gradient-to-r from-primary to-blue-800 text-white py-4 rounded-full font-bold hover:shadow-xl hover:shadow-blue-900/20 transition-all"
                   >
                     {content.exhibitorForm.submit}
                   </button>
@@ -297,15 +310,16 @@ export default function Exhibit() {
                   { key: 'rules', ...content.exhibitorInfo.rules },
                   { key: 'faq', ...content.exhibitorInfo.faq },
                 ].map((panel) => (
-                  <div key={panel.key} className="border border-border rounded-lg overflow-hidden">
+                  <div key={panel.key} className="elevated-card overflow-hidden">
                     <button
+                      type="button"
                       onClick={() => togglePanel(panel.key)}
-                      className="w-full px-6 py-4 flex items-center justify-between hover:bg-blue-50 transition-colors"
+                      className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left hover:bg-blue-50 transition-colors"
                     >
                       <h3 className="font-bold text-primary">{panel.title}</h3>
                       <ChevronDown
                         size={20}
-                        className={`transition-transform ${expandedPanel === panel.key ? 'rotate-180' : ''}`}
+                        className={`shrink-0 transition-transform ${expandedPanel === panel.key ? 'rotate-180' : ''}`}
                       />
                     </button>
                     {expandedPanel === panel.key && (
@@ -320,16 +334,18 @@ export default function Exhibit() {
           ) : (
             <>
               {/* Visitor Form */}
-              <div id="visitor" className="mb-12">
-                <h2 className="text-2xl font-bold mb-6 text-primary">{content.visitorForm.title}</h2>
-                <form onSubmit={handleVisitorSubmit} className="space-y-4">
+              <div id="visitor" className="section-shell p-6 md:p-8 mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary">{content.visitorForm.title}</h2>
+                <form onSubmit={handleVisitorSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium mb-2">{content.visitorForm.name}</label>
                     <input
                       type="text"
                       value={visitorForm.name}
+                      aria-label={content.visitorForm.name}
+                      placeholder={content.visitorForm.name}
                       onChange={(e) => setVisitorForm({ ...visitorForm, name: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
@@ -338,8 +354,10 @@ export default function Exhibit() {
                     <input
                       type="tel"
                       value={visitorForm.phone}
+                      aria-label={content.visitorForm.phone}
+                      placeholder={content.visitorForm.phone}
                       onChange={(e) => setVisitorForm({ ...visitorForm, phone: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
@@ -348,8 +366,10 @@ export default function Exhibit() {
                     <input
                       type="text"
                       value={visitorForm.company}
+                      aria-label={content.visitorForm.company}
+                      placeholder={content.visitorForm.company}
                       onChange={(e) => setVisitorForm({ ...visitorForm, company: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
@@ -358,23 +378,27 @@ export default function Exhibit() {
                     <input
                       type="text"
                       value={visitorForm.position}
+                      aria-label={content.visitorForm.position}
+                      placeholder={content.visitorForm.position}
                       onChange={(e) => setVisitorForm({ ...visitorForm, position: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                       required
                     />
                   </div>
-                  <div>
+                  <div className="md:col-span-2">
                     <label className="block text-sm font-medium mb-2">{content.visitorForm.needs}</label>
                     <textarea
+                      aria-label={content.visitorForm.needs}
+                      placeholder={content.visitorForm.needs}
                       value={visitorForm.needs}
                       onChange={(e) => setVisitorForm({ ...visitorForm, needs: e.target.value })}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary h-24"
+                      className="w-full px-4 py-3 border border-border rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition h-28"
                       required
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                    className="md:col-span-2 w-full bg-gradient-to-r from-primary to-blue-800 text-white py-4 rounded-full font-bold hover:shadow-xl hover:shadow-blue-900/20 transition-all"
                   >
                     {content.visitorForm.submit}
                   </button>
@@ -389,15 +413,16 @@ export default function Exhibit() {
                   { key: 'hotel', ...content.visitorInfo.hotel },
                   { key: 'schedule', ...content.visitorInfo.schedule },
                 ].map((panel) => (
-                  <div key={panel.key} className="border border-border rounded-lg overflow-hidden">
+                  <div key={panel.key} className="elevated-card overflow-hidden">
                     <button
+                      type="button"
                       onClick={() => togglePanel(panel.key)}
-                      className="w-full px-6 py-4 flex items-center justify-between hover:bg-blue-50 transition-colors"
+                      className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left hover:bg-blue-50 transition-colors"
                     >
                       <h3 className="font-bold text-primary">{panel.title}</h3>
                       <ChevronDown
                         size={20}
-                        className={`transition-transform ${expandedPanel === panel.key ? 'rotate-180' : ''}`}
+                        className={`shrink-0 transition-transform ${expandedPanel === panel.key ? 'rotate-180' : ''}`}
                       />
                     </button>
                     {expandedPanel === panel.key && (

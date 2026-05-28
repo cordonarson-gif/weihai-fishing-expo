@@ -8,14 +8,14 @@ export default function Overview() {
   const content = language === 'zh' ? {
     title: '展会概况',
     intro: '威海国际渔具博览会介绍',
-    introText: '威海国际渔具博览会始创于1991年，是亚洲规模最大、全球排名前三的渔具专业展览会。展会汇聚了全球顶级渔具制造商、供应商和采购商，是业界最重要的商务交流平台。',
+    introText: '威海国际渔具博览会始创于1991年，深耕渔具产业三十余年，已形成覆盖研发制造、品牌展示、国际采购、跨境电商与产业服务的专业展贸平台。展会以威海渔具产业集群为依托，持续连接全球优质供应链与专业买家。',
     hallTitle: '展馆分布',
-    hallSubtitle: '威海国际博览中心 A/B/C 馆',
+    hallSubtitle: '威海国际博览中心 A/B/C 馆，覆盖核心品类与配套服务',
     halls: [
-      { name: '鱼竿展区', desc: '专业鱼竿及配件展示' },
-      { name: '渔轮展区', desc: '各类渔轮产品展示' },
-      { name: '户外装备展区', desc: '户外渔具装备展示' },
-      { name: '跨境电商展区', desc: '跨境电商平台展示' },
+      { name: '鱼竿展区', desc: '覆盖手竿、海竿、路亚竿、竞技竿及碳素材应用' },
+      { name: '渔轮展区', desc: '展示纺车轮、水滴轮、电动轮与精密传动组件' },
+      { name: '户外装备展区', desc: '集中呈现钓箱、钓椅、钓鱼包、服饰与户外装备' },
+      { name: '跨境电商展区', desc: '对接平台服务、品牌出海、物流仓储与数字营销资源' },
     ],
     pastTitle: '往届回顾',
     dataTable: [
@@ -32,14 +32,14 @@ export default function Overview() {
   } : {
     title: 'Exhibition Overview',
     intro: 'About Weihai International Fishing Gear Exhibition',
-    introText: 'Founded in 1991, Weihai International Fishing Gear Exhibition is Asia\'s largest and globally top-3 professional fishing gear exhibition. It brings together leading fishing gear manufacturers, suppliers, and buyers worldwide, serving as the industry\'s most important business platform.',
+    introText: 'Founded in 1991, Weihai International Fishing Gear Exhibition has served the fishing gear industry for more than three decades. It now connects product R&D, manufacturing, brand showcases, international sourcing, cross-border commerce, and industry services in one professional trade platform.',
     hallTitle: 'Exhibition Hall Distribution',
-    hallSubtitle: 'Weihai International Convention Center Halls A/B/C',
+    hallSubtitle: 'Weihai International Convention Center Halls A/B/C, covering core categories and trade services',
     halls: [
-      { name: 'Fishing Rod Zone', desc: 'Professional fishing rods and accessories' },
-      { name: 'Fishing Reel Zone', desc: 'Various fishing reel products' },
-      { name: 'Outdoor Equipment Zone', desc: 'Outdoor fishing gear display' },
-      { name: 'Cross-border E-commerce Zone', desc: 'Cross-border e-commerce platforms' },
+      { name: 'Fishing Rod Zone', desc: 'Hand rods, sea rods, lure rods, competition rods, and carbon material applications' },
+      { name: 'Fishing Reel Zone', desc: 'Spinning reels, baitcasting reels, electric reels, and precision drive components' },
+      { name: 'Outdoor Equipment Zone', desc: 'Tackle boxes, chairs, bags, apparel, and outdoor fishing equipment' },
+      { name: 'Cross-border E-commerce Zone', desc: 'Marketplace services, brand globalization, logistics, warehousing, and digital marketing' },
     ],
     pastTitle: 'Past Events Review',
     dataTable: [
@@ -60,31 +60,40 @@ export default function Overview() {
       <Navigation language={language} onLanguageChange={setLanguage} />
 
       {/* Page Title */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-r from-primary to-blue-900 text-white">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">{content.title}</h1>
+      <section className="page-hero pt-36 pb-16 px-4">
+        <div className="container mx-auto relative text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-orange-200 mb-4">Overview</p>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">{content.title}</h1>
         </div>
       </section>
 
       {/* Introduction */}
       <section className="py-16 px-4">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-bold mb-6 text-primary">{content.intro}</h2>
-          <p className="text-lg text-foreground leading-relaxed">{content.introText}</p>
+        <div className="container mx-auto max-w-4xl">
+          <div className="section-shell p-8 md:p-10">
+            <p className="text-sm font-bold uppercase tracking-[0.26em] text-accent mb-4">About</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">{content.intro}</h2>
+            <p className="text-lg text-foreground leading-relaxed">{content.introText}</p>
+          </div>
         </div>
       </section>
 
       {/* Exhibition Halls */}
-      <section className="py-16 px-4 bg-blue-50">
+      <section className="py-16 px-4 bg-gradient-to-b from-blue-50/80 to-white">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-4 text-primary">{content.hallTitle}</h2>
-          <p className="text-muted mb-8">{content.hallSubtitle}</p>
-          
+          <div className="mb-8">
+            <p className="text-sm font-bold uppercase tracking-[0.26em] text-accent mb-3">Halls</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-primary">{content.hallTitle}</h2>
+            <p className="text-muted-foreground">{content.hallSubtitle}</p>
+          </div>
+
           {/* Hall Image */}
-          <div className="w-full h-64 md:h-96 rounded-lg mb-8 overflow-hidden shadow-lg">
-            <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/exhibition-hall-interior-FAmnpvUxeY7cFqQaLBzZpw.webp" 
+          <div className="w-full h-64 md:h-96 rounded-3xl mb-8 overflow-hidden shadow-2xl shadow-blue-900/10 border border-white">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp"
               alt="Exhibition Hall Interior"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </div>
@@ -92,7 +101,8 @@ export default function Overview() {
           {/* Hall Descriptions */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {content.halls.map((hall, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg border border-border hover:shadow-md transition-shadow">
+              <div key={idx} className="elevated-card p-6">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-primary font-bold">{idx + 1}</div>
                 <h3 className="text-xl font-bold text-primary mb-2">{hall.name}</h3>
                 <p className="text-foreground">{hall.desc}</p>
               </div>
@@ -104,26 +114,26 @@ export default function Overview() {
       {/* Past Events */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-primary">{content.pastTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">{content.pastTitle}</h2>
 
           {/* Data Table */}
-          <div className="overflow-x-auto mb-12">
+          <div className="overflow-x-auto mb-12 rounded-3xl border border-border bg-white shadow-[0_18px_50px_rgba(0,57,104,0.08)]">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-primary text-white">
-                  <th className="px-4 py-3 text-left">{language === 'zh' ? '展会' : 'Exhibition'}</th>
-                  <th className="px-4 py-3 text-left">{language === 'zh' ? '展商数' : 'Exhibitors'}</th>
-                  <th className="px-4 py-3 text-left">{language === 'zh' ? '采购商数' : 'Buyers'}</th>
-                  <th className="px-4 py-3 text-left">{language === 'zh' ? '成交额' : 'Transaction'}</th>
+                <tr className="brand-gradient text-white">
+                  <th className="px-5 py-4 text-left font-semibold">{language === 'zh' ? '展会' : 'Exhibition'}</th>
+                  <th className="px-5 py-4 text-left font-semibold">{language === 'zh' ? '展商数' : 'Exhibitors'}</th>
+                  <th className="px-5 py-4 text-left font-semibold">{language === 'zh' ? '采购商数' : 'Buyers'}</th>
+                  <th className="px-5 py-4 text-left font-semibold">{language === 'zh' ? '成交额' : 'Transaction'}</th>
                 </tr>
               </thead>
               <tbody>
                 {content.dataTable.map((row, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-blue-50'}>
-                    <td className="px-4 py-3 border-b border-border">{row.year}</td>
-                    <td className="px-4 py-3 border-b border-border">{row.exhibitors}</td>
-                    <td className="px-4 py-3 border-b border-border">{row.buyers}</td>
-                    <td className="px-4 py-3 border-b border-border">{row.sales}</td>
+                  <tr key={idx} className="bg-white hover:bg-blue-50/80 transition-colors">
+                    <td className="px-5 py-4 border-b border-border font-medium">{row.year}</td>
+                    <td className="px-5 py-4 border-b border-border text-primary font-bold">{row.exhibitors}</td>
+                    <td className="px-5 py-4 border-b border-border text-primary font-bold">{row.buyers}</td>
+                    <td className="px-5 py-4 border-b border-border text-accent font-bold">{row.sales}</td>
                   </tr>
                 ))}
               </tbody>
@@ -131,17 +141,19 @@ export default function Overview() {
           </div>
 
           {/* Past Event Images */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {[
-              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-gear-exhibition-event-1-xK9nMvQrLp2sT5wJ8nB3Ym.webp', alt: 'Exhibition Event 1' },
-              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-gear-exhibition-event-2-mK7pQsRvWx4zH2yN6vC5Dp.webp', alt: 'Exhibition Event 2' },
-              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-gear-exhibition-event-3-nL8qTuSwXy5aI3zO7wD6Eq.webp', alt: 'Exhibition Event 3' },
+              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp', alt: '往届展会现场观众与展商交流' },
+              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-tackle-booth-kYj5XNKvTJvp7xHuHJaaQA.webp', alt: '往届渔具展展台展示' },
+              { url: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663537547174/SfzzuD4bAUANatVB4Tmxwq/fishing-exhibition-crowd-k9nZmr7KEEutsgnWKR97LP.webp', alt: '往届展会会议与活动现场' },
             ].map((photo, idx) => (
-              <div key={idx} className="h-48 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                <img 
-                  src={photo.url} 
+              <div key={idx} className="h-52 rounded-3xl overflow-hidden shadow-lg shadow-blue-900/10 border border-white group">
+                <img
+                  src={photo.url}
                   alt={photo.alt}
-                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -150,12 +162,12 @@ export default function Overview() {
       </section>
 
       {/* Concurrent Events */}
-      <section className="py-16 px-4 bg-blue-50">
+      <section className="py-16 px-4 bg-gradient-to-b from-blue-50/80 to-white">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-primary">{content.eventsTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">{content.eventsTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {content.events.map((event, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg border-l-4 border-accent hover:shadow-lg transition-shadow">
+              <div key={idx} className="elevated-card p-6 border-l-4 border-accent">
                 <h3 className="text-xl font-bold text-primary mb-3">{event.title}</h3>
                 <p className="text-foreground">{event.desc}</p>
               </div>

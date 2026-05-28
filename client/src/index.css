@@ -43,7 +43,6 @@
 }
 
 :root {
-  /* Deep Sea Blue (#005792) as primary, Vibrant Orange (#FF7D00) as accent */
   --primary: #005792;
   --primary-foreground: #ffffff;
   --sidebar-primary: #004a7a;
@@ -55,27 +54,27 @@
   --chart-3: #003d6b;
   --chart-4: #FF7D00;
   --chart-5: #ff9933;
-  --radius: 0.5rem;
-  --background: #ffffff;
-  --foreground: #1D2129;
-  --card: #f5f7fa;
-  --card-foreground: #1D2129;
+  --radius: 0.75rem;
+  --background: #f7fbff;
+  --foreground: #102033;
+  --card: #ffffff;
+  --card-foreground: #102033;
   --popover: #ffffff;
-  --popover-foreground: #1D2129;
-  --secondary: #f5f7fa;
-  --secondary-foreground: #1D2129;
-  --muted: #86909C;
-  --muted-foreground: #86909C;
+  --popover-foreground: #102033;
+  --secondary: #eaf5ff;
+  --secondary-foreground: #102033;
+  --muted: #66788a;
+  --muted-foreground: #66788a;
   --destructive: #d32f2f;
   --destructive-foreground: #ffffff;
-  --border: #e8e8e8;
-  --input: #f5f7fa;
+  --border: #dce8f2;
+  --input: #f2f7fb;
   --ring: #FF7D00;
   --sidebar: #ffffff;
-  --sidebar-foreground: #1D2129;
+  --sidebar-foreground: #102033;
   --sidebar-accent: #FF7D00;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #e8e8e8;
+  --sidebar-border: #dce8f2;
   --sidebar-ring: #FF7D00;
 }
 
@@ -123,6 +122,9 @@
     font-family: 'Noto Sans SC', 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.6;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(0, 87, 146, 0.08), transparent 28rem),
+      linear-gradient(180deg, #f7fbff 0%, #ffffff 36rem);
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Noto Sans SC', 'Inter', sans-serif;
@@ -148,27 +150,28 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
+  a, button, input, select, textarea, [role="button"] {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -179,16 +182,54 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    @apply relative overflow-hidden rounded-3xl border border-white/70 bg-white/85 shadow-[0_24px_80px_rgba(0,57,104,0.08)] backdrop-blur;
+  }
+
+  .elevated-card {
+    @apply rounded-2xl border border-border/80 bg-white shadow-[0_18px_50px_rgba(0,57,104,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,57,104,0.14)];
+  }
+
+  .brand-gradient {
+    @apply bg-gradient-to-r from-primary via-blue-700 to-blue-950;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden bg-gradient-to-br from-blue-950 via-primary to-blue-800 text-white;
+  }
+
+  .page-hero::before {
+    content: "";
+    @apply absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(255,125,0,0.22),transparent_24rem),radial-gradient(circle_at_82%_20%,rgba(255,255,255,0.12),transparent_18rem)];
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

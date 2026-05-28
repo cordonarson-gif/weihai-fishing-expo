@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X, MapPin, Users, Package } from 'lucide-react';
 
 interface ExhibitionMapProps {
@@ -112,25 +112,38 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
     description: 'Hall Description',
   };
 
+  useEffect(() => {
+    if (!selectedZone) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedZone(null);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedZone]);
+
   return (
     <div className="w-full">
-      <div className="mb-8">
-        <h3 className="text-3xl font-bold mb-2 text-primary">{content.title}</h3>
-        <p className="text-muted text-lg">{content.subtitle}</p>
+      <div className="mb-6 text-center md:text-left">
+        <p className="text-sm font-bold uppercase tracking-[0.26em] text-accent mb-3">Interactive Map</p>
+        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-primary">{content.title}</h3>
+        <p className="text-muted-foreground max-w-2xl md:max-w-none mx-auto md:mx-0">{content.subtitle}</p>
       </div>
 
       {/* Exhibition Hall Map */}
-      <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl p-8 mb-8 border border-border shadow-lg">
+      <div className="section-shell p-3 md:p-5 mb-6">
         <svg
-          viewBox="0 0 500 450"
-          className="w-full h-auto"
-          style={{ maxHeight: '600px' }}
+          viewBox="0 0 500 430"
+          className="mx-auto w-full max-w-4xl h-auto max-h-[430px]"
         >
           {/* Background */}
           <defs>
             <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#f8fafc', stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: '#e2e8f0', stopOpacity: 1 }} />
+              <stop offset="0%" stopColor="#f8fafc" stopOpacity="1" />
+              <stop offset="100%" stopColor="#e2e8f0" stopOpacity="1" />
             </linearGradient>
           </defs>
           <rect width="500" height="450" fill="url(#bgGradient)" />
@@ -163,13 +176,19 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                 strokeWidth={hoveredZone === zone.id ? '3' : '2'}
                 rx="12"
                 filter={`url(#shadow-${zone.id})`}
-                style={{
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                }}
+                className="cursor-pointer transition-all duration-300"
                 onMouseEnter={() => setHoveredZone(zone.id)}
                 onMouseLeave={() => setHoveredZone(null)}
                 onClick={() => setSelectedZone(zone)}
+                role="button"
+                tabIndex={0}
+                aria-label={language === 'zh' ? `查看${zone.name}详情` : `View ${zone.nameEn} details`}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedZone(zone);
+                  }
+                }}
               />
 
               {/* Zone Label - Hall Name */}
@@ -180,7 +199,7 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                 fontWeight="bold"
                 textAnchor="middle"
                 fill={hoveredZone === zone.id ? '#ffffff' : zone.color}
-                style={{ pointerEvents: 'none', transition: 'all 0.3s ease' }}
+                className="pointer-events-none transition-all duration-300"
               >
                 {zone.name}
               </text>
@@ -192,7 +211,7 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                 fontSize="11"
                 textAnchor="middle"
                 fill={hoveredZone === zone.id ? '#ffffff' : '#86909C'}
-                style={{ pointerEvents: 'none', transition: 'all 0.3s ease' }}
+                className="pointer-events-none transition-all duration-300"
               >
                 {language === 'zh' ? zone.description.split(' - ')[1] : zone.descriptionEn.split(' - ')[1]}
               </text>
@@ -212,7 +231,7 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                 fontWeight="bold"
                 textAnchor="middle"
                 fill="#ffffff"
-                style={{ pointerEvents: 'none' }}
+                className="pointer-events-none"
               >
                 {Math.floor(zone.exhibitorCount / 50)}+
               </text>
@@ -226,7 +245,7 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                   textAnchor="middle"
                   fill="#ffffff"
                   fontStyle="italic"
-                  style={{ pointerEvents: 'none' }}
+                  className="pointer-events-none"
                 >
                   {language === 'zh' ? '点击查看详情' : 'Click for details'}
                 </text>
@@ -238,7 +257,7 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
           <g>
             <rect x="20" y="400" width="460" height="35" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" rx="6" />
             <text x="30" y="420" fontSize="11" fill="#86909C">
-              {language === 'zh' ? '💡 提示：鼠标悬停查看展区信息，点击查看详细展商列表' : '💡 Tip: Hover to preview, click for full exhibitor list'}
+              {language === 'zh' ? '提示：鼠标悬停查看展区信息，点击查看详细展商列表' : 'Tip: Hover to preview, click for full exhibitor list'}
             </text>
           </g>
         </svg>
@@ -246,12 +265,22 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
 
       {/* Zone Details Modal */}
       {selectedZone && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 animate-in fade-in">
-          <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95">
+        <div
+          className="fixed inset-0 bg-blue-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in"
+          role="dialog"
+          aria-modal="true"
+          aria-label={language === 'zh' ? '展区详情' : 'Zone details'}
+          onClick={() => setSelectedZone(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-blue-950/30 animate-in zoom-in-95"
+            onClick={(event) => event.stopPropagation()}
+          >
             {/* Header */}
             <div
-              className="sticky top-0 text-white p-8 flex items-start justify-between"
-              style={{ backgroundColor: selectedZone.color }}
+              className={`sticky top-0 text-white p-8 flex items-start justify-between ${
+                selectedZone.id === 'zone-a' ? 'bg-[#0066CC]' : selectedZone.id === 'zone-b' ? 'bg-accent' : 'bg-[#00AA66]'
+              }`}
             >
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
@@ -265,33 +294,35 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                 </p>
               </div>
               <button
+                type="button"
+                aria-label={language === 'zh' ? '关闭展区详情' : 'Close zone details'}
                 onClick={() => setSelectedZone(null)}
-                className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-2 hover:bg-white/20 rounded-full transition-colors"
               >
                 <X size={28} />
               </button>
             </div>
 
-            <div className="p-8 space-y-8">
+            <div className="p-6 md:p-8 space-y-8">
               {/* Key Statistics */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-blue-50 p-6 rounded-xl border-2 border-blue-200">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm">
                   <div className="flex items-center gap-3 mb-2">
                     <Users size={20} className="text-primary" />
                     <p className="text-sm text-muted font-medium">{content.exhibitorCount}</p>
                   </div>
-                  <p className="text-4xl font-bold text-primary">{selectedZone.exhibitorCount}+</p>
+                  <p className="text-3xl md:text-4xl font-bold text-primary">{selectedZone.exhibitorCount}+</p>
                 </div>
 
-                <div className="bg-orange-50 p-6 rounded-xl border-2 border-orange-200">
+                <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 shadow-sm">
                   <div className="flex items-center gap-3 mb-2">
                     <Package size={20} className="text-accent" />
                     <p className="text-sm text-muted font-medium">{content.mainProducts}</p>
                   </div>
-                  <p className="text-4xl font-bold text-accent">{selectedZone.mainProducts.length}</p>
+                  <p className="text-3xl md:text-4xl font-bold text-accent">{selectedZone.mainProducts.length}</p>
                 </div>
 
-                <div className="bg-green-50 p-6 rounded-xl border-2 border-green-200">
+                <div className="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
                   <div className="flex items-center gap-3 mb-2">
                     <MapPin size={20} className="text-green-600" />
                     <p className="text-sm text-muted font-medium">{content.location}</p>
@@ -332,7 +363,7 @@ export default function ExhibitionMap({ language }: ExhibitionMapProps) {
                   {selectedZone.exhibitors.map((exhibitor, idx) => (
                     <div
                       key={idx}
-                      className="border-2 border-border rounded-xl p-5 hover:shadow-lg hover:border-primary transition-all"
+                      className="elevated-card p-5 hover:border-primary"
                     >
                       <h4 className="font-bold text-lg text-foreground mb-2">
                         {language === 'zh' ? exhibitor.name : exhibitor.nameEn}
